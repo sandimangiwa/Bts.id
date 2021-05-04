@@ -2,27 +2,24 @@
   <div class="login-navbar" role="banner">
     <!-- body -->
     <div class="container">
-      <div class="row">
-        <div class="col images"></div>
-
-        <!-- bagian Kanan -->
-        <div class="col-lg-4 p-2">
+      <div class="row justify-content-center align-items-center mt-5">
+        <div class="col-lg-4 p-2 shadow ">
           <div class="login-page">
-            <div class="form form-login shadow">
+            <div class="form form-login ">
               <form class="login-form" @submit.prevent="register()">
                 <h2 class="Create">Create Account</h2>
 
-                <input type="name" v-model="username" placeholder="username" />
+                <input type="name" class="form-control mt-2" v-model="username" placeholder="username" />
 
-                <input type="text" v-model="email" placeholder="Email" />
+                <input type="text" class="form-control mt-2" v-model="email" placeholder="Email" />
 
-                <div class="row">
+                <div class="row mt-2">
                   <div class="col" style="margin-right: -20px">
-                    <input type="password" v-model="password" placeholder="Password" />
+                    <input type="password" class="form-control mt-2" v-model="password" placeholder="Password" />
                   </div>
                 </div>
 
-                <button class="btn" type="submit">Sign Up</button><br /><br />
+                <button class="btn btn-info mt-2" type="submit">Sign Up</button><br /><br />
                 <div>
                   Sudah punya akun?
                   <router-link class="login-link" to="/Login">Login</router-link>
@@ -59,6 +56,7 @@ export default {
         .post("register", data)
         .then((response) => {
           console.log(response);
+          this.$router.push({ name: "login" });
         })
         .catch((err) => {
           console.log(err);
